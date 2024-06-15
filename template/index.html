@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Cars{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important { color: #383a3b; } 
+</style>
+{% endblock %}
+{% block content %}
+<h1>Info</h1>
+Welcome to my car garage 
+<h1>Send Data to Flask</h1>
+<form action="/insert" method="POST">
+    <label for="data">Enter car: </label> <br>
+    <input type="text" name="namee" ><br>
+    <label for="data">Enter car model:</label><br>
+    <input type="text" name="model"><br>
+    <input type="submit" value="Submit">    
+</form>
+
+<ul>
+{% for item in data %}
+    <li>Car {{ loop.index }} - {{ item[0] }}, Model {{ item[1] }}</li>
+{% endfor %}
+</ul>
+
+<p class="important">
+    Welcome to my garage, insert your car
+</p>
+{% endblock %}
+
